@@ -11,10 +11,10 @@ const PORT = 3000;
 // koaBody is needed just for POST.
 app.use(koaBody());
 
-router.post('/graphql', graphqlKoa({ schema }));
-router.get('/graphql', graphqlKoa({ schema }));
-router.post('/graphiql', graphiqlKoa({ schema }));
-router.get('/graphiql', graphiqlKoa({ schema }));
+router.post('/graphql', graphqlKoa({ endpointURL: '/graphql', schema }));
+router.get('/graphql', graphqlKoa({ endpointURL: '/graphql', schema }));
+router.post('/graphiql', graphiqlKoa({ endpointURL: '/graphql', schema }));
+router.get('/graphiql', graphiqlKoa({ endpointURL: '/graphql', schema }));
 
 app.use(router.routes());
 app.use(router.allowedMethods());
